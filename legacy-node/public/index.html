@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Smart Waste Manager</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<header><div><strong>Smart Waste</strong><small>Collection control</small></div><div id="identity" hidden><span id="who"></span><button id="logout" class="plain">Log out</button></div></header>
+<main>
+<section id="loginPanel" class="login card"><h1>Sign in</h1><p>Use your manager or staff account.</p>
+  <form id="loginForm"><label>Username<input name="username" required autocomplete="username"></label><label>Password<input name="password" type="password" required autocomplete="current-password"></label><button>Sign in</button></form>
+  <p id="loginError" class="error" role="alert"></p></section>
+<div id="appPanel" hidden>
+  <div class="headline"><div><h1 id="pageTitle">Overview</h1><p id="connection">Connecting…</p></div><nav id="nav"></nav></div>
+  <div id="flash" role="status"></div>
+  <section id="overview" class="page manager-page"><div class="section-title"><h2>Bins</h2><span id="overviewStats"></span></div><div id="binCards" class="grid"></div>
+    <h2>Alert cart</h2><div id="alerts" class="stack"></div>
+    <h2>Fill history</h2><div class="card"><label>Bin <select id="chartBin"></select></label><svg id="chart" viewBox="0 0 700 210" role="img" aria-label="Fill history chart"></svg><p id="chartCaption" class="muted"></p></div>
+    <h2>Recent readings</h2><div class="table-wrap"><table><thead><tr><th>Bin</th><th>Level</th><th>Time</th></tr></thead><tbody id="recentRows"></tbody></table></div>
+  </section>
+  <section id="manage" class="page manager-page" hidden><h2>Manage bins</h2><div class="two-col"><form id="binForm" class="card"><h3 id="binFormTitle">Add bin</h3><label>Bin ID<input name="id" required pattern="[A-Za-z0-9_-]+" maxlength="32"></label><label>Name<input name="name" required maxlength="80"></label><label>Location<input name="location" required maxlength="160"></label><label>Height (cm)<input name="height_cm" type="number" min="1" max="1000" step="0.1" value="40" required></label><label>Full threshold (%)<input name="threshold" type="number" min="1" max="100" value="80" required></label><div class="actions"><button>Save bin</button><button type="button" id="cancelBin" class="secondary" hidden>Cancel edit</button></div><p id="newKey" class="key"></p></form><div id="manageBins" class="stack"></div></div></section>
+  <section id="tasks" class="page manager-page" hidden><h2>Collection tasks</h2><div class="two-col"><form id="taskForm" class="card"><h3>Assign task</h3><label>Bin<select name="bin_id" id="taskBin" required></select></label><label>Staff<select name="staff_id" id="taskStaff" required></select></label><label>Priority<select name="priority"><option value="1">Low</option><option value="2" selected>Normal</option><option value="3">High</option></select></label><label>Note<textarea name="note" maxlength="500"></textarea></label><button>Assign task</button></form><div id="managerTasks" class="stack"></div></div></section>
+  <section id="staff" class="page manager-page" hidden><h2>Staff accounts</h2><div class="two-col"><form id="staffForm" class="card"><h3>Create staff account</h3><label>Username<input name="username" required minlength="3" maxlength="40"></label><label>Temporary password<input name="password" type="password" required minlength="12"></label><button>Create account</button></form><div id="staffList" class="stack"></div></div></section>
+  <section id="reports" class="page manager-page" hidden><h2>Report summary</h2><div id="reportCards" class="grid"></div><p class="muted">The chart and recent readings are on Overview. Stored history is hourly after 24 hours and retained for 30 days.</p></section>
+  <section id="myTasks" class="page" hidden><h2>My collection tasks</h2><p class="muted">Highest priority tasks appear first. Confirm the physical bin is emptied before completing a task.</p><div id="myTasksList" class="stack"></div></section>
+</div></main><script src="/app.js"></script></body></html>

@@ -1,0 +1,9 @@
+# Replace the two paths with absolute paths in this project, using forward slashes.
+listener 1883 0.0.0.0
+allow_anonymous false
+password_file C:/ABSOLUTE/PATH/smart-waste-management/broker/passwords
+acl_file C:/ABSOLUTE/PATH/smart-waste-management/broker/acl
+persistence true
+persistence_location C:/ABSOLUTE/PATH/smart-waste-management/data/
+log_type error
+log_type warning

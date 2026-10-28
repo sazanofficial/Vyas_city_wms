@@ -1,0 +1,7 @@
+# Shared device login can only publish sensor readings.
+user waste-device
+topic write waste/bins/+/readings
+
+# Django can only subscribe to sensor readings.
+user waste-backend
+topic read waste/bins/+/readings

@@ -1,0 +1,13 @@
+node_modules/
+data/
+.env
+.venv/
+design/
+frontend/node_modules/
+frontend/dist/
+**/__pycache__/
+.pytest_cache/
+backend/tests/.testdata/
+broker/passwords
+broker/acl
+broker/mosquitto.conf
