@@ -37,6 +37,8 @@ smart-waste-management/
 
 ## Start the project on Windows
 
+For team changes, create a branch and open a pull request into `main`. GitHub Actions builds the React frontend and runs the Django integration test on each pull request. Each teammate should create their own `.env` and broker password files locally; these and the SQLite database are ignored by Git.
+
 This workspace has already been seeded, built and configured. The existing manager username, password and four bin keys are in `data/setup-credentials.txt`. Keep this file private. The backend uses the same `data/waste.sqlite` database as the earlier Node version, so sample bins and prior readings remain available.
 
 For a new installation:
